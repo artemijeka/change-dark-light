@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Переключение темы: светлая - тёмная | Switching the theme: light - dark</title>
+  <meta name="description" content="https://youtu.be/JhVMAzrvdos">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+  <section class="change-dark-light">
+    <figure class="change-dark-light__card">
+      <span class="change-dark-light__toggle"></span>
+      <img src="art.jpg" alt="" class="change-dark-light__img">
+      <figcaption class="change-dark-light__caption">
+        <h1 class="change-dark-light__title">
+          Артём Кузнецов<br />
+          <span class="change-dark-light__subtitle">Front-end разработчик</span>
+        </h1>
+      </figcaption>
+    </figure>
+  </section>
+
+  <script src="./DragManager.js"></script>
+  <script src="./vanilla-tilt.js"></script>
+  <script>
+    let changeDarkLight = document.querySelector('.change-dark-light');
+    let changeDarkLightToggle = document.querySelector('.change-dark-light__toggle');
+    let body = document.querySelector('body');
+    changeDarkLightToggle.onclick = function () {
+      changeDarkLight.classList.toggle('--dark');
+      body.classList.toggle('--dark');
+    }
+
+    var dragManager = new DragManager('.change-dark-light__card');
+
+    VanillaTilt.init(document.querySelector(".change-dark-light__card"), {
+      max: 10,
+      speed: 400,
+      glare: true,   // if it should have a "glare" effect
+      "max-glare": 0.4      // the maximum "glare" opacity (1 = 100%, 0.5 = 50%)
+    });
+  </script>
+
+</body>
+
+</html>
